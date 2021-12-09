@@ -1,0 +1,29 @@
+<div class="container">
+    <br>
+
+    <h2>INSERIRE I NUOVI DATI</h2>
+
+    <br>
+
+    <form [formGroup]="consoleForm" (ngSubmit)="editConsole()">
+        <div class="form-group">
+            <label>
+                <h5>Titolo</h5>
+            </label>
+            <input type="text" class="form-control" formControlName="name">
+            <div id="ERROR" *ngIf="!consoleForm.get('name')?.valid && consoleForm.get('name')?.dirty">
+                Title not valid
+            </div>
+        </div>
+        <br>
+
+        <br>
+
+        <input type="hidden" class="form-control" formControlName="id">
+        <button type="submit" class="btn" [disabled]="!consoleForm.valid">
+            Save
+        </button>
+    </form>
+
+    <br>
+</div>

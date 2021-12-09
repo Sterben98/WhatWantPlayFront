@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">WhatWantPlay</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" id="NavLink" routerLink="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="NavLink" th:href="">Forum</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right" *ngIf="!isLoggedIn()">
+                <li><button class="btn" [routerLink]="['Users/Login']">LOGIN</button></li>
+                <li><button class="btn" [routerLink]="['Users/Registration']">REGISTRATION</button></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" *ngIf="isLoggedIn()">
+                <li><button class="btn" (click)="logout()">LOGOUT</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>

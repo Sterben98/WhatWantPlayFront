@@ -1,0 +1,38 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <h2 class="text">Nome</h2> 
+                </th>
+                <th>
+                    
+                </th>
+                <th>
+                    <h2 class="text">Gestione</h2>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <button class="btn" [routerLink]="['../Add']">AGGIUNGI GIOCO</button>
+                </td>
+            </tr>
+            <tr *ngFor="let gm of games">
+                <td>
+                    <p>{{ gm.title }}</p>
+                </td>
+                <td>
+                    <button class="btn">DETTAGLI</button>
+                </td>
+                <td>
+                    <button class="btn" (click)="delete(gm)">ELIMINA</button>
+                    <button class="btn" [routerLink]="['../Edit/'+gm.id]">MODIFICA</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

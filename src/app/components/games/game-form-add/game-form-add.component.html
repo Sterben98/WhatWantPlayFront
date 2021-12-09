@@ -1,0 +1,49 @@
+<div class="container">
+    <br>
+
+    <h2>INSERIRE I DATI DELLA NUOVA CONSOLE</h2>
+
+    <br>
+
+    <form [formGroup]="gameForm" (ngSubmit)="saveGame()">
+        <div class="form-group">
+            <label>
+                <h5>Titolo</h5>
+            </label>
+            <input type="text" class="form-control" formControlName="title">
+            <div id="ERROR" *ngIf="!gameForm.get('title')?.valid && gameForm.get('title')?.dirty">
+                Title not valid
+            </div>
+            <br>
+            <label>
+                <h5>Tipologia</h5>
+            </label>
+            <input type="text" class="form-control" formControlName="description">
+            <div id="ERROR" *ngIf="!gameForm.get('description')?.valid && gameForm.get('description')?.dirty">
+                Description not valid
+            </div>
+            <br>
+            <label>
+                <h5>Voto</h5>
+            </label>
+            <input type="text" class="form-control" formControlName="vote">
+            <div id="ERROR" *ngIf="!gameForm.get('vote')?.valid && gameForm.get('vote')?.dirty">
+                Vote not valid
+            </div>
+            <label>
+                <h5>Console</h5>
+            </label>
+            <select class="form-select" multiple formControlName="consoles">
+                <option *ngFor="let cns of consoles" [ngValue]="cns">{{ cns.name }}</option>
+            </select>
+        </div>
+        <br>
+
+        <br>
+
+        <input type="hidden" class="form-control" formControlName="id">
+        <button type="submit" class="btn" [disabled]="!gameForm.valid">Save</button>
+    </form>
+
+    <br>
+</div>

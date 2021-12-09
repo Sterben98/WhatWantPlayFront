@@ -1,0 +1,22 @@
+tr{
+    background: linear-gradient(90deg, rgba(0,0,0,1) 40%, rgba(255,255,255,1) 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+
+.container{
+    box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.877), 4px 6px 20px 4px rgba(255, 255, 255, 0.582);
+    background-image: linear-gradient(315deg, #1c1c1d 0%, #ffffff 74%);
+    border-radius: 10px;
+}
+
+td{
+    text-align: center;
+}
+
+p{
+    margin-top: 2%;
+}

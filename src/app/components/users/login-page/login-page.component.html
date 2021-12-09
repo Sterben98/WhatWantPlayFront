@@ -1,0 +1,39 @@
+<div class="container">
+    <br>
+
+    <h2>INSERIRE I DATI PER IL LOGIN</h2>
+
+    
+
+    <div id="ERROR" *ngIf="feedback !== undefined && !feedback.success">
+        <br>
+        {{ feedback.message }}
+        <br>
+    </div>
+
+    <br>
+
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" type="text" class="form-control" name="username" [(ngModel)]="loginData.username"
+                required #username="ngModel">
+            <div id="ERROR" *ngIf="username.invalid && username.dirty">
+                Username not valid
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" class="form-control" name="password" [(ngModel)]="loginData.password"
+                required #password="ngModel" password-validator>
+            <div id="ERROR" *ngIf="password.invalid && password.dirty">
+                Password not valid
+            </div>
+        </div>
+
+        <br>
+        <button type="submit" class="btn" [disabled]="!loginForm.valid">Login</button>
+    </form>
+    <br>
+</div>
