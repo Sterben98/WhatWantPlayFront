@@ -49,6 +49,36 @@ export class UserService {
         );
     };
   }
+
+  public tokenResolve(): User | undefined{
+    let login: LoginResponse;
+    
+    let loginStr: string | null = localStorage.getItem(
+      AppConstants.LOGIN_STORAGE
+    );
+
+    if (loginStr !== '' && loginStr !== null && loginStr !== undefined) {
+      login = JSON.parse(loginStr);
+    } else {
+      return undefined;
+    }
+
+    const token = login.token;
+    let tokenExpired: boolean = false;
+
+    if (this.jwtHelper.isTokenExpired(token)) {
+      localStorage.setItem(AppConstants.LOGIN_STORAGE, '');
+      tokenExpired = true;
+
+      return undefined;
+    }
+
+    const roles= this.jwtHelper.decodeToken(token).roles;
+
+    let loggedUser: User= {firstName:"", lastName:"", password:"", username:"", roles: roles};
+
+    return loggedUser;
+  } 
   
   public isAuthenticated(): boolean {
     let login: LoginResponse;

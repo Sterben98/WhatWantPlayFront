@@ -3,4 +3,6 @@ export interface User{
     lastName:string;
     username:string;
     password:string;
+
+    roles?: Array<string>;
 }

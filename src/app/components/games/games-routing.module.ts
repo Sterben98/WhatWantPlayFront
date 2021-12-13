@@ -7,8 +7,8 @@ import { GameFormEditComponent } from './game-form-edit/game-form-edit.component
 
 const routes: Routes = [
   {path:'All', component:AllGamePageComponent},
-  {path:'Add', component:GameFormAddComponent, canActivate: [UserGuardService]},
-  {path:'Edit/:id', component:GameFormEditComponent, canActivate: [UserGuardService]},
+  {path:'Add', component:GameFormAddComponent, canActivate: [UserGuardService], data: { roles: ["ROLE_ROOT"] }},
+  {path:'Edit/:id', component:GameFormEditComponent, canActivate: [UserGuardService], data: { roles: ["ROLE_ROOT"] }}
 ];
 
 @NgModule({

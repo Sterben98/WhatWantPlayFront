@@ -7,9 +7,9 @@ import { ConsoleFormEditComponent } from './console-form-edit/console-form-edit.
 import { ConsolePageComponent } from './console-page/console-page.component';
 
 const routes: Routes = [
-  {path:'Add', component:ConsoleFormAddComponent, canActivate: [UserGuardService]},
+  {path:'Add', component:ConsoleFormAddComponent, canActivate: [UserGuardService], data: { roles: ["ROLE_ROOT"] }},
   {path:'Show/:id', component:ConsolePageComponent},
-  {path:'Edit/:id', component:ConsoleFormEditComponent, canActivate: [UserGuardService]},
+  {path:'Edit/:id', component:ConsoleFormEditComponent, canActivate: [UserGuardService], data: { roles: ["ROLE_ROOT"] }},
   {path:'All', component:AllConsolePageComponent}
 ];
 
